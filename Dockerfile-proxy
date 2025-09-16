@@ -1,0 +1,14 @@
+FROM debian:latest
+RUN apt-get update && \
+    apt-get install -y apache2 && \
+    apt-get clean && \
+    mkdir zoubixconf && \
+    a2enmod ssl && \
+    a2enmod proxy && \
+    a2enmod proxy_http && \
+    a2enmod rewrite && \
+    a2enmod http2 && \
+    a2dissite 000-default
+EXPOSE 883
+ENV TZ Europe/Paris
+CMD ["/usr/sbin/apache2ctl","-DFOREGROUND"]

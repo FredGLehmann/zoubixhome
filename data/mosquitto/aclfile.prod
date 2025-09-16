@@ -1,0 +1,10 @@
+topic read test/#
+
+user admin
+topic read $SYS/#
+
+user test
+topic test/#
+
+user zigbee2mqtt
+topic zigbee2mqtt/#

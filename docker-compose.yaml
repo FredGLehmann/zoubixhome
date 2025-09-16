@@ -1,0 +1,50 @@
+services:
+  zigbee2mqtt:
+    image: 'koenkk/zigbee2mqtt'
+    restart: unless-stopped
+    container_name : 'zigbee2mqtt'
+    hostname: 'zigbee2mqtt.zoubix.net'
+    devices:
+      - /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0018ED3DDF-if00:/dev/ttyACM0
+    ports:
+      - "8080:8080"
+    environment:
+      - TZ=Europe/Paris
+    volumes:
+      - ${PWD}/data/zigbee2mqtt:/data
+      - /run/udev:/run/udev:ro
+
+  mqttbroker:
+    image: zbx-mqttbroker
+    restart: unless-stopped
+    container_name : 'mqttbroker'
+    hostname: 'mqttbroker.zoubix.net'
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+    environment:
+      - TZ=Europe/Paris
+    volumes:
+      - ${PWD}/data/mosquitto:/config
+
+  homeassistant:
+    image: homeassistant/home-assistant:stable
+    restart: unless-stopped
+    container_name: homeassistant
+    environment:
+      - TZ=Europe/Paris
+    ports:
+      - 8123:8123
+    volumes:
+      - ${PWD}/data/homeassistant:/config
+
+  proxy:
+    image: proxy:latest
+    restart: unless-stopped
+    container_name: proxy
+    environment:
+      - TZ=Europe/Paris
+    ports:
+      - 443:443
+    volumes:
+      - ${PWD}/data/apache:/config

@@ -1,0 +1,9 @@
+# ZOUBIXHOME/ MQTT Broker container
+FROM debian:latest
+RUN apt-get update && \
+    apt-get install -y mosquitto && \
+    apt-get clean && \
+    mkdir zoubixconf
+EXPOSE 1883
+ENV TZ Europe/Paris
+CMD ["mosquitto","-c","/config/mosquitto.conf","-v"]
