@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "core.label_registry",
+  "data": {
+    "labels": [
+      {
+        "color": "indigo",
+        "description": "Chambre C&F",
+        "icon": "mdi:bed",
+        "label_id": "chambre",
+        "name": "chambre",
+        "created_at": "2025-09-13T17:10:34.237181+00:00",
+        "modified_at": "2025-09-13T17:10:34.237185+00:00"
+      },
+      {
+        "color": "blue-grey",
+        "description": "Chambre Klara",
+        "icon": "mdi:bed",
+        "label_id": "chambrek",
+        "name": "chambrek",
+        "created_at": "2025-09-13T17:11:25.000152+00:00",
+        "modified_at": "2025-09-13T17:11:25.000157+00:00"
+      },
+      {
+        "color": "red",
+        "description": null,
+        "icon": "mdi:fish",
+        "label_id": "bassin",
+        "name": "bassin",
+        "created_at": "2025-09-13T17:11:51.675263+00:00",
+        "modified_at": "2025-09-13T17:11:51.675268+00:00"
+      }
+    ]
+  }
+}

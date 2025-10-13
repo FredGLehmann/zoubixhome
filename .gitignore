@@ -1,0 +1,6 @@
+*.crt
+*.pem
+*.key
+*.csr
+passwd.*
+data/homeassistant/*
