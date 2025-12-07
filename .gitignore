@@ -3,4 +3,5 @@
 *.key
 *.csr
 passwd.*
-data/homeassistant/*
+Docker/data/homeassistant/*
+Docker/data/mosquitto/*

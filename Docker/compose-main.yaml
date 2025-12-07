@@ -1,0 +1,24 @@
+services:
+  mqttbroker:
+    image: zbx-mqttbroker
+    restart: unless-stopped
+    container_name : 'mqttbroker'
+    hostname: 'mqttbroker.zoubix.net'
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+    environment:
+      - TZ=Europe/Paris
+    volumes:
+      - ${PWD}/data/mosquitto:/config
+
+  homeassistant:
+    image: homeassistant/home-assistant:stable
+    restart: unless-stopped
+    container_name: homeassistant
+    environment:
+      - TZ=Europe/Paris
+    ports:
+      - 8123:8123
+    volumes:
+      - ${PWD}/data/homeassistant:/config
