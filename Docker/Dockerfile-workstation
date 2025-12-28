@@ -1,0 +1,6 @@
+# ZOUBIXHOME/ MQTT Broker container
+FROM debian:latest
+RUN apt-get update && \
+    apt-get install -y mosquitto-clients && \
+    apt-get clean
+ENV TZ Europe/Paris
